@@ -34,7 +34,7 @@ export default function Main() {
     }, [searchCityWeather]);
 
   return (
-    <main className='px-16 py-8'>
+    <main className='p-4 md:px-16 md:py-8'>
         <Search selectCity={selectCity}/>
         <div className="grid">
             <Lagos />
