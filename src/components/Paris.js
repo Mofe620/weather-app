@@ -23,7 +23,7 @@ export default function Paris() {
 
     if(parisWeather != null){
         return (
-            <div className='weather-card bg-fuchsia-50 border-l-2 border-b-4 border-r-2 border-orange-400 rounded-md m-8 shadow-2xl shadow-slate-400 p-4 cursor-pointer'>
+            <div className='weather-card bg-white border-l-2 border-b-4 border-r-2 border-orange-400 rounded-md m-8 shadow-2xl shadow-slate-400 p-4 cursor-pointer'>
                 <div className='flex justify-between'>
                     <h2 className='text-xl'>Paris, FR</h2>
                     <q className='capitalize'>{parisWeather.weather[0].description}</q>

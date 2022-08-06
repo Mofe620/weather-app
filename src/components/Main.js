@@ -4,6 +4,9 @@ import Weather from './Weather';
 import Lagos from './Lagos';
 import Tokyo from './Tokyo';
 import Paris from './Paris';
+import London from './London';
+import NewYork from './NewYork';
+import Istanbul from './Istanbul';
 import { WEATHER_API_URL, WEATHER_API_KEY } from '../api_data';
 
 export default function Main() {
@@ -40,6 +43,9 @@ export default function Main() {
             <Lagos />
             {searchCityWeather ? <Weather data={searchCityWeather}/> : <Paris />}
             <Tokyo />
+            <London />
+            <NewYork />
+            <Istanbul />
         </div>
     </main>
   )

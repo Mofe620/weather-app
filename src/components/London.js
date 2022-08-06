@@ -2,57 +2,56 @@ import React from 'react';
 import { WEATHER_API_URL, WEATHER_API_KEY } from '../api_data';
 
 
-export default function Tokyo() {
+export default function London() {
 
-    const [tokyoWeather, setTokyoWeather] = React.useState(null);
+    const [londonWeather, setLondonWeather] = React.useState(null);
     
-    const lat = 35.689722222;
-    const lon = 139.692222222;
+        const lat = 51.507222222;
+        const lon = -0.1275;
         
-        function tokyoWeatherFetch (){ 
+        function londonWeatherFetch (){ 
             fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`)
                     .then(response => response.json()
-                    .then (weatherResult => setTokyoWeather(weatherResult)));
+                    .then (weatherResult => setLondonWeather(weatherResult)));
             
         }
    
 
     React.useEffect(()=>{
-     tokyoWeatherFetch();
+     londonWeatherFetch();
     }, []);
 
-    if(tokyoWeather != null){
+    if(londonWeather != null){
         return (
-            <div className='weather-card bg-white border-t-4 border-r-2 border-amber-400 rounded-md m-8 shadow-2xl shadow-slate-400 p-4 cursor-pointer'>
+            <div className='weather-card bg-white border-l-4 border-b-2 border-yellow-500 rounded-md m-8 shadow-2xl shadow-slate-400 p-4 cursor-pointer'>
                 <div className='flex justify-between'>
-                    <h2 className='text-xl'>Tokyo, JP</h2>
-                    <q className='capitalize'>{tokyoWeather.weather[0].description}</q>
+                    <h2 className='text-xl'>London, GB</h2>
+                    <q className='capitalize'>{londonWeather.weather[0].description}</q>
                 </div>
                 <div className="">
                     <div className="details-section">
                         <div className="flex items-center justify-between">
                                 <div>
-                                    <h2 className='text-6xl'>{Math.round(tokyoWeather.main.temp)}°C</h2>
+                                    <h2 className='text-6xl'>{Math.round(londonWeather.main.temp)}°C</h2>
                                     <span> Feels like </span>
-                                    <span className=''> {Math.round(tokyoWeather.main.feels_like)}°C</span>
+                                    <span className=''> {Math.round(londonWeather.main.feels_like)}°C</span>
                                 </div>
                                 <div>
-                                    <img src={`icons/${tokyoWeather.weather[0].icon}.png`} alt=""/>
-                                    
+                                    <img src={`icons/${londonWeather.weather[0].icon}.png`} alt=""/>
                                 </div>
                         </div>
                         <div className="mt-4">
                             <div className="flex items-center justify-between">
                                 <span>Wind speed:</span>
-                                <span>{tokyoWeather.wind.speed} m/s</span>
+                                <span>{londonWeather.wind.speed} m/s</span>
                             </div>
                             <div className="flex items-center justify-between">
                                 <span>Humidity:</span>
-                                <span>{tokyoWeather.main.humidity}%</span>
+                                <span>{londonWeather.main.humidity}%</span>
                             </div>
                             <div className="flex items-center justify-between">
                                 <span>Air Pressure:</span>
-                                <span>{tokyoWeather.main.pressure} hPa</span>
+                                <span>{londonWeather.main.pressure} hPa</span>
                             </div>
                         </div>
                     </div>

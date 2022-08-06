@@ -23,7 +23,7 @@ export default function Lagos() {
 
     if(lagosWeather != null){
         return (
-            <div className='weather-card bg-fuchsia-50 border-l-4 border-b-2 border-yellow-500 rounded-md m-8 shadow-2xl shadow-slate-400 p-4 cursor-pointer'>
+            <div className='weather-card bg-white border-l-4 border-b-2 border-yellow-500 rounded-md m-8 shadow-2xl shadow-slate-400 p-4 cursor-pointer'>
                 <div className='flex justify-between'>
                     <h2 className='text-xl'>Lagos, NG</h2>
                     <q className='capitalize'>{lagosWeather.weather[0].description}</q>
