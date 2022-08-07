@@ -19,11 +19,11 @@ export default function London() {
 
     React.useEffect(()=>{
      londonWeatherFetch();
-    }, []);
+    });
 
     if(londonWeather != null){
         return (
-            <div className='weather-card bg-white border-l-4 border-b-2 border-yellow-500 rounded-md m-8 shadow-2xl shadow-slate-400 p-4 cursor-pointer'>
+            <div className='p-4 m-8 bg-white border-b-2 border-l-4 border-yellow-500 rounded-md shadow-2xl cursor-pointer weather-card shadow-slate-400'>
                 <div className='flex justify-between'>
                     <h2 className='text-xl'>London, GB</h2>
                     <q className='capitalize'>{londonWeather.weather[0].description}</q>
