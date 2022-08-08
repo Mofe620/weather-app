@@ -9,21 +9,28 @@ export default function Paris() {
     const lat = 48.833022222;
     const lon = 2.326888888;
         
-        function parisWeatherFetch (){ 
-            fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`)
-                    .then(response => response.json()
-                    .then (weatherResult => setParisWeather(weatherResult)));
-            
-        }
+        // const parisWeatherFetch = async ()=>{ 
+        //     fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`)
+        //             .then(response => response.json()
+        //             .then (weatherResult => {return weatherResult}));
+        //             console.log("HI");
+        // }
+
+        // const setStatetoResult = React.useMemo(async () => {
+        //      await parisWeatherFetch;
+        //   });
    
 
     React.useEffect(()=>{
-     parisWeatherFetch();
-    }, []);
+        fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`)
+                    .then(response => response.json()
+                    .then (weatherResult => {setParisWeather(weatherResult)}));
+                    console.log("HI");
+    },[]);
 
     if(parisWeather != null){
         return (
-            <div className='weather-card bg-white border-l-2 border-b-4 border-r-2 border-orange-400 rounded-md m-8 shadow-2xl shadow-slate-400 p-4 cursor-pointer'>
+            <div className='p-4 m-8 bg-white border-b-4 border-l-2 border-r-2 border-orange-400 rounded-md shadow-2xl cursor-pointer weather-card shadow-slate-400'>
                 <div className='flex justify-between'>
                     <h2 className='text-xl'>Paris, FR</h2>
                     <q className='capitalize'>{parisWeather.weather[0].description}</q>

@@ -41,7 +41,7 @@ export default function Main() {
         <Search selectCity={selectCity}/>
         <div className="grid">
             <Lagos />
-            {searchCityWeather ? <Weather data={searchCityWeather}/> : <Paris />}
+            {searchCityWeather ? <Weather data={searchCityWeather}/> : <Paris /> }
             <Tokyo />
             <London />
             <NewYork />
