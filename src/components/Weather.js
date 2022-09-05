@@ -3,7 +3,7 @@ import React from 'react';
 export default function Weather({data}) {
 
   return (
-    <div className='weather-card prioritize bg-white border-t-4 border-b-4 border-l-2 border-r-2 border-sky-800 rounded-md m-8 shadow-2xl shadow-slate-400 p-4 cursor-pointer'>
+    <div className='p-4 m-8 bg-white border-t-4 border-b-4 border-l-2 border-r-2 rounded-md shadow-2xl cursor-pointer weather-card prioritize border-sky-800 shadow-slate-400'>
                 <div className='flex justify-between'>
                     <h2 className='text-xl'>{data.city}</h2>
                     <q className='capitalize'>{data.weather[0].description}</q>

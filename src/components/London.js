@@ -1,10 +1,13 @@
 import React from 'react';
 import { WEATHER_API_URL, WEATHER_API_KEY } from '../api_data';
+import Forecast from './Forecast';
 
 
 export default function London() {
 
     const [londonWeather, setLondonWeather] = React.useState(null);
+    const [londonForecast, setLondonForecast] = React.useState(null);
+    const [showForecast, setShowForecast] = React.useState(false);
     
         const lat = 51.507222222;
         const lon = -0.1275;
@@ -13,7 +16,9 @@ export default function London() {
             fetch(`${WEATHER_API_URL}/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`)
                     .then(response => response.json()
                     .then (weatherResult => setLondonWeather(weatherResult)));
-            
+            fetch(`${WEATHER_API_URL}/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_KEY}&units=metric`)
+                    .then(response => response.json() 
+                    .then (forecastResult => {setLondonForecast(forecastResult)}));
         }
    
 
@@ -23,7 +28,7 @@ export default function London() {
 
     if(londonWeather != null){
         return (
-            <div className='p-4 m-8 bg-white border-b-2 border-l-4 border-yellow-500 rounded-md shadow-2xl cursor-pointer weather-card shadow-slate-400'>
+            <div className='p-4 m-8 bg-white border-b-2 border-l-4 rounded-md shadow-2xl cursor-pointer border-sky-800 weather-card shadow-slate-400'>
                 <div className='flex justify-between'>
                     <h2 className='text-xl'>London, GB</h2>
                     <q className='capitalize'>{londonWeather.weather[0].description}</q>
@@ -54,6 +59,10 @@ export default function London() {
                                 <span>{londonWeather.main.pressure} hPa</span>
                             </div>
                         </div>
+                        <div className="text-center bg-blue-400" onClick={()=>{setShowForecast(prev => !prev)}}>
+                            <button>{showForecast ? "Hide" : "See"} Forecast</button>
+                        </div>
+                        {showForecast && londonForecast !=null ? <Forecast data={londonForecast} /> : ""}
                     </div>
                     
                 </div>

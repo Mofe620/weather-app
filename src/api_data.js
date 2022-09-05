@@ -8,4 +8,4 @@ export const RAPID_API_OPTIONS = {
   export const RAPID_API_URL = "https://wft-geo-db.p.rapidapi.com/v1/geo";
   
   export const WEATHER_API_URL = "https://api.openweathermap.org/data/2.5";
-  export const WEATHER_API_KEY = "64e7763e89d183240dd6de489b385e46"; // enter your key from openweather API
+  export const WEATHER_API_KEY = "a30b634d8d16e1524b3e55255b547d13"; // enter your key from openweather API

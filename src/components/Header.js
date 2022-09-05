@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Header() {
   return (
-    <header className='p-8 pb-4 bg-sky-500 text-white md:flex items-center'>
+    <header className='items-center p-8 pb-4 text-white bg-sky-500 md:flex'>
         <h1 className='text-5xl'>Weather.fz</h1>
-        <p className='md:pl-4 mt-2'>Today's Weather Report</p>
+        <p className='mt-2 md:pl-4'>Today's Weather Report | Tomorrow's Forecast</p>
         <span className='mt-2 ml-auto text-2xl'>{today}</span>
     </header>
   );

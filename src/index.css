@@ -22,8 +22,9 @@ main {
 .grid * {
     transition: all 0.4s ease;
 }
-.weather-card:hover {
-    transform: scale(1.08);
+.daily-details-grid-item {
+    display: flex;
+    justify-content: space-between;
 }
 /* MEDIA QUERIES */
 @media (max-width:550px) {
